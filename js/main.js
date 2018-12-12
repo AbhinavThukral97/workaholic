@@ -14,7 +14,7 @@ $(document).ready(function(){
     		Notification.requestPermission();
   		else {
     		var notification = new Notification(title, {
-      			icon: '../img/notification_logo.png',
+      			icon: 'http://abhinavthukral.in/lab/Workaholic/img/notification_logo.png',
       			body: message,
     		});
 
