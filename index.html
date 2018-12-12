@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Workaholic</title>
+	<link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,300i,400,400i,500,600,700,800,900|Roboto:100,300,300i,400,400i,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/site.webmanifest">
+	<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#f2c93a">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="img/logo.svg">
+		</div>
+	</header>
+	<nav>
+		<div class="content">
+			<div class="tabs">
+				<div class="tab active tab-health"><i class="fas fa-running"></i> Health</div>
+				<div class="tab tab-todo"><i class="fas fa-clipboard-check"></i> To-Dos</div>
+				<div class="tab tab-notes"><i class="fas fa-pen"></i> Notes</div>
+				<div class="tab tooltip" aria-label="Coming Soon"><i class="fas fa-clock"></i> Goals</div>
+				<div class="tab tooltip" aria-label="Coming Soon"><i class="fas fa-bell"></i> Reminders</div>
+			</div>
+		</div>
+	</nav>
+	<section class="health active">
+		<div class="content">
+			<h6>Health</h6>
+			<h2>Activity</h2>
+			<div class="split">
+				<div class="screen-time">
+					<div class="inner-title">
+						<h4>Today's Screen Time</h4>
+					</div>
+					<div class="time">
+						00:00:00
+					</div>
+					<button class="pause-button">
+						<span class="pause"><i class="fas fa-pause"></i> Pause</span>
+						<span class="play"><i class="fas fa-play"></i> Resume</span>
+					</button>
+				</div>
+				<div class="health-activity">
+					<div class="inner-title">
+						<h4>Upcoming Health Activity</h4>
+					</div>
+					<hr>
+					<div class="activity">
+						<div class="activity-symbol">
+							<img src="img/eyes_rest.png">
+						</div>
+						<div class="activity-description">
+							<div class="activity-name">5 minutes eye rest</div>	
+							<div class="activity-info">Look into the distance, something green such as plants to soothe your eyes.</div>
+						</div>
+					</div>
+					<div class="buttons-wrapper">
+						<button class="tooltip" aria-label="Not Active Yet"><i class="fas fa-check"></i> Completed</button>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="todo">
+		<div class="content">
+			<h6>To-Dos</h6>
+			<h2></h2>
+			<div class="add-todo"><input type="text" name="list"><button><i class="fas fa-plus"></i> Add</button></div>
+			<div class="todo-wrapper">
+				<p class="empty-message">The list is empty</p>
+			</div>
+		</div>	
+	</section>
+	<section class="notes">
+		<div class="content">
+			<h6>Notes</h6>
+			<h2>Notepad</h2>
+			<textarea></textarea>
+		</div>	
+	</section>
+	<div class="black-screen"></div>
+	<div class="instructions">
+		<div class="content">
+		<div class="logo">
+			<img src="img/logo.svg">
+		</div>
+		<h1>Welcome to Workaholic!</h1>
+		<p><b>Currently can't send notifications becuase HTTPS source required.</b> While you take care of your work, Workaholic is an app that takes care of you. In just one day at the office, it is usual to spend about 5-6 hours staring continuously at our screens. This slowly ruins our posture, eyesight and causes headaches. In addition, being immersed in work makes us forget to take care of our hydration and other important health related daily activities. Workaholic uses the best health practices and reminds you in well thought-out intervals to do small 2 minute activities that will help improve your health as you work. You can also write notes, your to-do tasks, set goals and reminders. Just hit start working to set the timer and have a healthier, more productive day at work.</p>
+		<button class="start"><i class="fas fa-briefcase"></i> Start Working</button>
+		</div>
+	</div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/navigation.js"></script>
+  <script type="text/javascript" src="js/todo.js"></script>
+</html>

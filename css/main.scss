@@ -1,0 +1,670 @@
+$primary-font: 'Poppins',sans-serif;
+$secondary-font: 'Roboto',sans-serif;
+
+$border: #E2EAED;
+$primary-color: #F2C93A;
+$dark-text: #4C5C64;
+$text: #A0BAC8;
+$screentime: #26B389;
+$red: #ED4C67;
+
+@mixin transition($time){
+  -webkit-transition: all$time ease;
+  -moz-transition: all$time ease;
+  -o-transition: all$time ease;
+  transition: all$time ease;
+}
+
+@mixin smoothtransition($time){
+  -webkit-transition: all$time cubic-bezier(.43,.13,.15,.99);
+  -moz-transition: all$time cubic-bezier(.43,.13,.15,.99);
+  -o-transition: all$time cubic-bezier(.43,.13,.15,.99);
+  transition: all$time cubic-bezier(.43,.13,.15,.99);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+body
+{
+	margin: auto;
+	font-family: $primary-font;
+	background: #EBF2F5;
+}
+
+.content
+{
+	width: 85%;
+	margin: auto;
+}
+
+header
+{
+	height: 70px;
+	width: 100%;
+	background: #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid $border;
+	z-index: 1000;
+
+	.logo 
+	{
+		height: 40%;
+
+		img 
+		{
+			height: 100%;
+		}
+	}
+}
+
+nav 
+{
+	position: relative;
+	height: 60px;
+	width: 100%;
+	background: #FFF;
+	box-shadow: 0px 5px 10px rgba(76,92,100,.05);
+	z-index: 1000;
+
+	.content
+	{
+		height: 100%;
+	}
+
+	.tabs 
+	{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		font-size: .85em;
+		font-weight: 600;
+		color: $text;
+
+		.tab 
+		{
+			padding: 18px 20px;
+			margin: 0px 15px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			border-bottom: 4px solid transparent;
+			@include transition(.5s);
+
+			.fas,.far 
+			{
+				margin-right: 10px;
+				color: $text;
+				@include transition(.5s);
+			}
+		}
+
+		.tab:hover
+		{
+			color: $dark-text;
+
+			.far,.fas 
+			{
+				color: $dark-text;
+			}
+		}
+	}
+
+	.tab.active
+	{
+		color: $dark-text;
+		border-bottom: 4px solid $primary-color;
+
+		.fas,.far 
+		{
+			color: $primary-color !important;
+		}
+	}
+}
+
+nav.fixed
+{
+	position: fixed;
+	top: 0;
+}
+
+section
+{
+	padding: 50px 0px;
+	display: none;
+}
+
+section.active
+{
+	display: block;
+}
+
+h2
+{
+	font-weight: 500;
+	color: $dark-text;
+	font-size: 2em;
+	margin: 0;
+}
+
+h6
+{
+	font-weight: 600;
+	color: $text;
+	font-size: .9em;
+	margin: 0;
+}
+
+h4 
+{
+	margin: 0px;
+	padding: 15px 20px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	font-size: .8em;
+	color: $text;
+}
+
+hr 
+{
+	width: 100%;
+	border: .5px solid $border;
+}
+
+button
+{
+	padding: 5px 10px;
+	background: none;
+	border: 1px solid $border;
+	color: $text;
+	font-family: $primary-font;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: .8em;
+	margin: 5px;
+	@include transition(.5s);
+
+	.fas,.far 
+	{
+		margin-right: 5px;
+	}
+}
+
+button:hover
+{
+	border: 1px solid $text;
+	color: $text;
+}
+
+section.health
+{
+	.split 
+	{
+		width: 100%;
+		display: flex;
+
+		.screen-time
+		{
+			position: relative;
+			width: calc(60% - 0px);
+			height: 280px;
+			background: url('../img/screentime.png');
+			background-size: cover;
+			background-position: center center;
+			background-color: $screentime;
+			margin: 20px 10px;
+			margin-left: 0;
+			border-radius: 10px;
+
+			h4
+			{
+				color: #FFF;
+			}
+
+			.time
+			{
+				position: absolute;
+				top: 50%;
+				font-family: $secondary-font;
+				width: calc(100% - 40px);
+				transform: translate(0%,-50%);
+				font-size: 5em;
+				font-weight: 100;
+				color: #FFF;
+				text-align: center;
+			}
+
+			.pause-button
+			{
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				background: none;
+				outline: none;
+				border: 1px solid rgba(255,255,255,.1);
+				color: #FFF;
+				font-family: $primary-font;
+				padding: 5px 10px;
+				border-radius: 5px;
+				font-size: 1em;
+				cursor: pointer;
+				@include transition(.5s);
+
+				.far,.fas 
+				{
+					margin-right: 5px;
+				}
+
+				span.play
+				{
+					display: none;
+				}
+			}
+
+			.pause-button:hover
+			{
+				background: #FFF;
+				color: $screentime;
+			}
+		}
+
+		.health-activity
+		{
+			position: relative;
+			width: calc(40% - 0px);
+			height: 280px;
+			background: #FFF;
+			margin: 20px 10px;
+			margin-right: 0;
+			border-radius: 10px;
+			border: 1px solid $border;
+
+			.activity
+			{
+				padding: 10px 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.activity-symbol 
+				{
+					height: 80px;
+					width: 80px;
+					margin: 5px;
+					border-radius: 100%;
+					overflow: hidden;
+
+					img 
+					{
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.activity-description
+				{
+					width: calc(100% - 120px);
+
+					.activity-name
+					{
+						color: $dark-text;
+						font-size: 1em;
+						margin: 5px 25px;
+						font-weight: 600;
+					}
+
+					.activity-info
+					{
+						color: $text;
+						line-height: 1.25;
+						margin: 5px 25px;
+						font-size: .75em;
+						text-align: justify;
+					}
+				}
+			}
+
+			.buttons-wrapper
+			{
+				display: flex;
+				justify-content: center;
+			}
+		}
+	}
+}
+
+.tooltip
+{
+  position: relative;
+  overflow: visible;
+}
+
+.tooltip:after
+{
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  max-width: 100px;
+  font-size: .8em;
+  font-weight: 400;
+  padding: 8px 10px;
+  background: rgba(0,0,0,.6);
+  color: #FFF;
+  border-radius: 5px;
+  transform: translate(-50%,0);
+  content: attr(aria-label);
+  z-index: 100000;
+  opacity: 0;
+  white-space: nowrap;
+  @include transition(.5s);
+}
+
+.tooltip:hover:after
+{
+  opacity: 1;
+  top: calc(100% + 10px);
+}
+
+section.todo
+{
+	.add-todo
+	{
+		margin: 20px 0px;
+		width: 100%;
+
+		input
+		{
+			font-family: $primary-font;
+			width: calc(100% - 120px);
+			max-width: 300px;
+			padding: 12px;
+			background: #FFF;
+			outline: none;
+			border: 2px solid $border;
+			border-radius: 5px;
+			color: $dark-text;
+			@include transition(.5s);
+		}
+
+		input:focus
+		{
+			box-shadow: 0px 0px 20px $border;
+		}
+
+		button
+		{
+			padding: 12px 20px;
+			background: $text;
+			color: #FFF;
+			border: none;
+			@include transition(.5s);
+		}
+
+		button:hover
+		{
+			background: $dark-text;
+		}
+	}
+
+	.todo-wrapper
+	{
+		margin: 20px 0px;
+		font-size: 1.1em;
+		color: $dark-text;
+		font-weight: 500;
+		padding: 20px;
+		border-radius: 10px;
+
+		.empty-message
+		{
+			color: $text;
+		}
+
+		.todo-item
+		{
+			margin: 10px 0px;
+			padding: 10px;
+			cursor: pointer;
+
+			.checkbox
+			{
+				position: relative;
+				height: 25px;
+				width: 25px;
+				border: 2px solid $text;
+				margin-right: 20px;
+				border-radius: 100%;
+				display: inline-block;
+				vertical-align: middle;
+				cursor: pointer;
+				@include smoothtransition(.5s);
+
+				.fas,.far 
+				{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					font-size: .8em;
+					color: #FFF;
+					opacity: 0;
+					@include smoothtransition(.5s);
+				}
+			}
+
+			span
+			{
+				display: inline-block;
+				vertical-align: middle;
+				@include transition(.5s);
+			}
+
+			.remove-todo
+			{
+				margin-left: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				height: 20px;
+				width: 20px;
+				background: $red;
+				border-radius: 100%;
+				cursor: pointer;
+				opacity: 0;
+				@include transition(.5s);
+
+				.fas,.far 
+				{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					font-size: .75em;
+					color: #FFF;
+				}
+			}
+
+			.remove-todo:hover
+			{
+				box-shadow: 0px 0px 0px .2rem rgba(237, 76, 103,.4);
+			}
+		}
+
+		.todo-item:hover
+		{
+			.checkbox
+			{
+				border: 2px solid $dark-text;
+			}
+
+			.remove-todo
+			{
+				opacity: 1;
+			}
+		}
+
+		.todo-item.checked
+		{
+			.checkbox
+			{
+				background: $primary-color;
+				border: 2px solid $primary-color !important;
+
+				.fas,.far 
+				{
+					opacity: 1;
+				}
+			}
+
+			span 
+			{
+				text-decoration: line-through;
+			}
+		}
+	}
+}
+
+section.notes
+{
+	position: relative;
+
+	.content 
+	{
+		position: relative;
+		display: block;
+		width: 80% !important;
+	}
+
+	textarea
+	{
+		position: relative;
+		font-family: $primary-font;
+		font-size: 1em;
+		line-height: 1.5;
+		display: block;
+		overflow: auto;
+		height: auto;
+		padding: 20px;
+		margin: 20px 0px;
+		width: 100% !important;
+		border: none;
+		border-radius: 10px;
+		min-height: 200px;
+		box-sizing: border-box;
+		outline: none;
+		clear: both;
+	}
+}
+
+.black-screen
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(76,92,100,.3);
+	z-index: 4000;
+	opacity: 1;
+	@include transition(.5s);
+}
+
+.instructions
+{
+	position: fixed;
+	top: 10vh;
+	left: 10vw;
+	width: 80vw;
+	height: 80vh;
+	background: #FFF;
+	z-index: 5000;
+	border-radius: 20px;
+	padding: 10px;
+	border: 2px solid $border;
+	box-shadow: 0px 0px 50px rgba(76,92,100,.1);
+	transform: scale(1);
+	opacity: 1;
+	@include smoothtransition(.5s);
+
+	.content{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+	.logo 
+	{
+		height: 40px;
+		width: auto;
+		margin: 20px 0px;
+		display: flex;
+		justify-content: center;
+
+		img 
+		{
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	h1
+	{
+		color: $dark-text;
+		font-weight: 500;
+		margin: 10px 0px;
+		text-align: center;
+
+	}
+
+	p
+	{
+		color: $text;
+		text-align: justify;
+		line-height: 1.75;
+		font-size: .9em;
+	}
+
+	button
+	{
+		background: $screentime;
+		color: #FFF;
+		padding: 20px;
+		margin: 10px 0px;
+		border: none;
+		position: relative;
+		left: 50%;
+		transform: translate(-50%,0);
+		cursor: pointer;
+	}
+
+	button:hover
+	{
+		border: none;
+		box-shadow: 0px 0px 0px .5em rgba(38,179,137,.2);
+	}
+}
